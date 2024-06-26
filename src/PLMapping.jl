@@ -6,6 +6,8 @@ export
     find_maxima,
     flip_rows
 
+using DelimitedFiles
+
 include("analysis.jl")
 include("cleaning.jl")
 
