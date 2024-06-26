@@ -1,6 +1,6 @@
 function lorentzian(ω, p)
-    A, ω₀, γ = p
-    return @. A * γ / ((ω - ω₀)^2 +  γ^2) / π
+    A, ω₀, γ, y₀ = p
+    return @. A * γ / ((ω - ω₀)^2 +  γ^2) / π + y₀
 end
 
 
