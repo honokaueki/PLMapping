@@ -2,3 +2,6 @@ name = "PLMapping"
 uuid = "dc1bc451-ac84-42c5-b106-cf22d8965971"
 authors = ["81905 "]
 version = "0.1.0"
+
+[deps]
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
