@@ -1,8 +1,10 @@
 module PLMapping
 
-export lorentzian
+export lorentzian,
+       trapezoid
 
-include("functions.jl")
+include("analysis.jl")
+include("cleaning.jl")
 
 
 end # module PLMapping
