@@ -4,9 +4,15 @@ function lorentzian(ω, p)
 end
 
 
-# function trapezoid()
-# 
-# end
+function trapezoid(x, y)
+    area = 0
+    i = 1
+    while i < length(y)
+        area += (y[i] + y[i+1]) * (x[i+1] - x[i]) / 2.0
+        i += 1
+    end
+    return area
+end
 
 function find_maxima(dir)
 
