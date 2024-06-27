@@ -33,13 +33,15 @@ function find_maxima(dir)
     return spectra, max_vals
 end
 
-function find_area(spectrum, background, λ_0 = 0.0)
-
+function find_area(spectrum, background, λ_0)
     area = 0.0
     x = spectrum[:, 1]
     y = spectrum[:, 2]
     y = median_filter(y, 5)
     y = y .- background
+    if y == zeros(length(y))
+        return area
+    end
 
     pks, vals = findmaxima(y, 40)
     center_guess = x[pks[argmax(vals)]]
