@@ -32,3 +32,22 @@ function find_maxima(dir)
 
     return spectra, max_vals
 end
+
+function find_area(spectrum, background)
+
+    area = 0.0
+    x = spectrum[:, 1]
+    y = spectrum[:, 2]
+    y = median_filter(y, 5)
+    y = y .- background
+
+    pks, vals = findmaxima(y, 40)
+    center_guess = x[pks[argmax(vals)]]
+
+    p0 = [maximum(y), center_guess, 1]
+    if center_guess < 850 && center_guess > 750
+        fit = curve_fit(lorentzian, x, y, p0)
+        area = trapezoid(x, lorentzian(x, fit.param))
+    end
+    return area
+end
