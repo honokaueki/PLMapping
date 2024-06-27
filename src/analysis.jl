@@ -45,7 +45,7 @@ function find_area(spectrum, background, λ_0 = 0.0)
     center_guess = x[pks[argmax(vals)]]
 
     p0 = [maximum(y), center_guess, 1]
-    if center_guess < λ_0 && center_guess > λ_0
+    if  center_guess > (λ_0 - 50) && center_guess < (λ_0 + 50)
         fit = curve_fit(lorentzian, x, y, p0)
         area = trapezoid(x, lorentzian(x, fit.param))
     end
