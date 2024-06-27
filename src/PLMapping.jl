@@ -1,7 +1,16 @@
 module PLMapping
 
-export lorentzian,
-       trapezoid
+export
+    lorentzian,
+    trapezoid,
+    find_maxima,
+    flip_rows,
+    find_area
+
+using DelimitedFiles
+using LsqFit
+using Peaks
+using SignalFiltering
 
 include("analysis.jl")
 include("cleaning.jl")
